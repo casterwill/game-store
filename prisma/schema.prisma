@@ -20,6 +20,7 @@ model User {
   username  String   @unique
   email     String   @unique
   password  String
+  role      Role     @default(USER)
   games     UserGame[]
   wishlist  Wishlist[]
   reviews   Review[]
@@ -66,4 +67,9 @@ model Wishlist {
   gameId Int
 
   @@unique([userId, gameId]) // mencegah user punya game yang sama di wishlist
+}
+
+enum Role {
+  USER
+  ADMIN
 }
