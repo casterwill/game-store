@@ -40,6 +40,23 @@ export type Review = $Result.DefaultSelection<Prisma.$ReviewPayload>
 export type Wishlist = $Result.DefaultSelection<Prisma.$WishlistPayload>
 
 /**
+ * Enums
+ */
+export namespace $Enums {
+  export const Role: {
+  USER: 'USER',
+  ADMIN: 'ADMIN'
+};
+
+export type Role = (typeof Role)[keyof typeof Role]
+
+}
+
+export type Role = $Enums.Role
+
+export const Role: typeof $Enums.Role
+
+/**
  * ##  Prisma Client ʲˢ
  *
  * Type-safe database client for TypeScript & Node.js
@@ -1368,6 +1385,7 @@ export namespace Prisma {
     username: string | null
     email: string | null
     password: string | null
+    role: $Enums.Role | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1375,6 +1393,7 @@ export namespace Prisma {
     username: string | null
     email: string | null
     password: string | null
+    role: $Enums.Role | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1382,6 +1401,7 @@ export namespace Prisma {
     username: number
     email: number
     password: number
+    role: number
     _all: number
   }
 
@@ -1399,6 +1419,7 @@ export namespace Prisma {
     username?: true
     email?: true
     password?: true
+    role?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1406,6 +1427,7 @@ export namespace Prisma {
     username?: true
     email?: true
     password?: true
+    role?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1413,6 +1435,7 @@ export namespace Prisma {
     username?: true
     email?: true
     password?: true
+    role?: true
     _all?: true
   }
 
@@ -1507,6 +1530,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role: $Enums.Role
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1533,6 +1557,7 @@ export namespace Prisma {
     username?: boolean
     email?: boolean
     password?: boolean
+    role?: boolean
     games?: boolean | User$gamesArgs<ExtArgs>
     wishlist?: boolean | User$wishlistArgs<ExtArgs>
     reviews?: boolean | User$reviewsArgs<ExtArgs>
@@ -1544,6 +1569,7 @@ export namespace Prisma {
     username?: boolean
     email?: boolean
     password?: boolean
+    role?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1551,6 +1577,7 @@ export namespace Prisma {
     username?: boolean
     email?: boolean
     password?: boolean
+    role?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1558,9 +1585,10 @@ export namespace Prisma {
     username?: boolean
     email?: boolean
     password?: boolean
+    role?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "password", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "password" | "role", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     games?: boolean | User$gamesArgs<ExtArgs>
     wishlist?: boolean | User$wishlistArgs<ExtArgs>
@@ -1582,6 +1610,7 @@ export namespace Prisma {
       username: string
       email: string
       password: string
+      role: $Enums.Role
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2012,6 +2041,7 @@ export namespace Prisma {
     readonly username: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'Role'>
   }
     
 
@@ -6965,7 +6995,8 @@ export namespace Prisma {
     id: 'id',
     username: 'username',
     email: 'email',
-    password: 'password'
+    password: 'password',
+    role: 'role'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -7062,6 +7093,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Role'
+   */
+  export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
+    
+
+
+  /**
+   * Reference to a field of type 'Role[]'
+   */
+  export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7086,6 +7131,7 @@ export namespace Prisma {
     username?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    role?: EnumRoleFilter<"User"> | $Enums.Role
     games?: UserGameListRelationFilter
     wishlist?: WishlistListRelationFilter
     reviews?: ReviewListRelationFilter
@@ -7096,6 +7142,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
     games?: UserGameOrderByRelationAggregateInput
     wishlist?: WishlistOrderByRelationAggregateInput
     reviews?: ReviewOrderByRelationAggregateInput
@@ -7109,6 +7156,7 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
+    role?: EnumRoleFilter<"User"> | $Enums.Role
     games?: UserGameListRelationFilter
     wishlist?: WishlistListRelationFilter
     reviews?: ReviewListRelationFilter
@@ -7119,6 +7167,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -7134,6 +7183,7 @@ export namespace Prisma {
     username?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
+    role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   }
 
   export type UserGameWhereInput = {
@@ -7370,6 +7420,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     games?: UserGameCreateNestedManyWithoutUserInput
     wishlist?: WishlistCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
@@ -7380,6 +7431,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     games?: UserGameUncheckedCreateNestedManyWithoutUserInput
     wishlist?: WishlistUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
@@ -7389,6 +7441,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     games?: UserGameUpdateManyWithoutUserNestedInput
     wishlist?: WishlistUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
@@ -7399,6 +7452,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     games?: UserGameUncheckedUpdateManyWithoutUserNestedInput
     wishlist?: WishlistUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
@@ -7409,12 +7463,14 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
   }
 
   export type UserUpdateManyMutationInput = {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -7422,6 +7478,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type UserGameCreateInput = {
@@ -7649,6 +7706,13 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type EnumRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
+  }
+
   export type UserGameListRelationFilter = {
     every?: UserGameWhereInput
     some?: UserGameWhereInput
@@ -7684,6 +7748,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -7695,6 +7760,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -7702,6 +7768,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -7740,6 +7807,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type EnumRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRoleFilter<$PrismaModel>
+    _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
   export type UserScalarRelationFilter = {
@@ -7970,6 +8047,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type EnumRoleFieldUpdateOperationsInput = {
+    set?: $Enums.Role
   }
 
   export type UserGameUpdateManyWithoutUserNestedInput = {
@@ -8307,6 +8388,13 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedEnumRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -8349,6 +8437,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedEnumRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRoleFilter<$PrismaModel>
+    _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -8509,6 +8607,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     wishlist?: WishlistCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
   }
@@ -8518,6 +8617,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     wishlist?: WishlistUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
   }
@@ -8568,6 +8668,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     wishlist?: WishlistUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
   }
@@ -8577,6 +8678,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     wishlist?: WishlistUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -8726,6 +8828,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     games?: UserGameCreateNestedManyWithoutUserInput
     wishlist?: WishlistCreateNestedManyWithoutUserInput
   }
@@ -8735,6 +8838,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     games?: UserGameUncheckedCreateNestedManyWithoutUserInput
     wishlist?: WishlistUncheckedCreateNestedManyWithoutUserInput
   }
@@ -8785,6 +8889,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     games?: UserGameUpdateManyWithoutUserNestedInput
     wishlist?: WishlistUpdateManyWithoutUserNestedInput
   }
@@ -8794,6 +8899,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     games?: UserGameUncheckedUpdateManyWithoutUserNestedInput
     wishlist?: WishlistUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -8834,6 +8940,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     games?: UserGameCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
   }
@@ -8843,6 +8950,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     games?: UserGameUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
   }
@@ -8893,6 +9001,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     games?: UserGameUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
   }
@@ -8902,6 +9011,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     games?: UserGameUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
   }
