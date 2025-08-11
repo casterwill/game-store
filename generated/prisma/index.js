@@ -158,7 +158,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\aideon\\OneDrive - Politeknik Elektronika Negeri Surabaya\\Learn Web Dev\\Portofolio\\gamehub-api\\generated\\prisma",
+      "value": "C:\\Users\\aideon\\Documents\\GitHub\\gamehub-api\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -172,7 +172,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\aideon\\OneDrive - Politeknik Elektronika Negeri Surabaya\\Learn Web Dev\\Portofolio\\gamehub-api\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\aideon\\Documents\\GitHub\\gamehub-api\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
