@@ -5,6 +5,8 @@ import { isAdmin } from '../middleware/adminCheck.js'
 
 const router = express.Router()
 
+//#region CRUD Games
+
 // CREATE Game
 router.post('/games', authenticateToken, isAdmin, async (req, res) => {
   const { title, genre, platform, releaseYear, price } = req.body
@@ -49,5 +51,7 @@ router.delete('/games/:id', authenticateToken, isAdmin, async (req, res) => {
     res.status(400).json({ error: error.message })
   }
 })
+
+//#endregion
 
 export default router
