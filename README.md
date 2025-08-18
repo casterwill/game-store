@@ -14,7 +14,7 @@ mirip kayak steam tapi lebih simple
 - run `npm run dev` in cmd
 - open on [localhost](https://localhost:4000)
 
-# How to CRUD games
+# How to how to Create, Update and Delete games
 - make sure you can run backend by follow instruction above
 - run `cd backend` in cmd
 - run `npm run admin_init` in cmd
@@ -33,7 +33,9 @@ mirip kayak steam tapi lebih simple
 - React
 
 # Database Tables
-- Game : tempat menyimpan semua game yang telah ditambahkan oleh admin
-- Review : tempat menyimpan semua review game, 1 user tidak bisa bikin banyak review di 1 game
-- User : tempat menyimpan data user, termasuk admin.
+- Game : store game that have been added by admin
+- Review : store all game review, 1 user cannot make more than one review in one game
+- User : store user data, including admin.
+- UserGame : store ownership of games, contain user id and game id.
+- wishlist : store user wishlist, contain user id and game id.
 
