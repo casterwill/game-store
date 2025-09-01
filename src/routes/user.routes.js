@@ -9,10 +9,7 @@ import { use } from 'react'
 const router = express.Router()
 
 // READ Games
-router.get('/games', authenticateToken, async (req, res) => {
-  const games = await prisma.game.findMany()
-  res.json(games)
-})  
+
 
 //#region Wishlist Routes
 router.post('/wishlist', authenticateToken, wishlist.postWishlist);

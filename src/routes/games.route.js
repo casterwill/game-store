@@ -1,24 +1,29 @@
-import express from 'express'
-import { prisma } from '../prisma.js'
+import express from "express";
+import { prisma } from "../prisma.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/reviews', (req, res) => {
-    const reviews = prisma.review.findMany({
-        include: {
-            user: true,
-        }
-    })
-    res.json(reviews)
-})
+router.get("/fetch", async (req, res) => {
+  const games = await prisma.game.findMany();
+  res.json(games);
+});
 
-router.get('/wishlist', (req, res) => {
-    const reviews = prisma.wishlist.findMany({
-        include: {
-            user: true,
-        }
-    })
-    res.json(reviews)
-})
+router.get("/reviews", (req, res) => {
+  const reviews = prisma.review.findMany({
+    include: {
+      user: true,
+    },
+  });
+  res.json(reviews);
+});
 
-export default router
+router.get("/wishlist", (req, res) => {
+  const reviews = prisma.wishlist.findMany({
+    include: {
+      user: true,
+    },
+  });
+  res.json(reviews);
+});
+
+export default router;
