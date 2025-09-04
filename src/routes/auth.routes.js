@@ -8,7 +8,7 @@ const router = express.Router();
 let saltRounds = 10;
 
 // Register
-router.post("/register", async (req, res) => {
+router.post("/signup", async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
 });
 
 // Login
-router.post("/login", async (req, res) => {
+router.post("/signin", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await prisma.user.findUnique({ where: { email } });
