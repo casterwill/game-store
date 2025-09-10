@@ -2,11 +2,11 @@
   "name": "gamehub-api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "backend/src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js",
-    "admin_init": "node prisma/admin_init.js"
+    "dev": "nodemon backend/src/server.js",
+    "admin_init": "node backend/prisma/admin_init.js"
   },
   "keywords": [],
   "author": "",
