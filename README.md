@@ -1,4 +1,4 @@
-# gamehub-api
+# game-store
 
 mirip kayak steam tapi lebih simple
 
